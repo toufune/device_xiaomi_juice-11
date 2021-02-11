@@ -543,7 +543,8 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
+    WifiResCommon
 #    AospFrameworkResOverlay \
 #    AospWifiResOverlay \
 #    GmsTelecommOverlay \
@@ -555,7 +556,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 #    SystemUIResCommon \
 #    TelecommResCommon \
 #    TelephonyResCommon \
-#    WifiResCommon
 
 # WiFi
 PRODUCT_PACKAGES += \
