@@ -225,6 +225,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
+# Power Stats
+PRODUCT_PACKAGES += \
+    android.hardware.power.stats@1.0-service.mock
+
 # HIDL
 PRODUCT_PACKAGES += \
     libbase \
