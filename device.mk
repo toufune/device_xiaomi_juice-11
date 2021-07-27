@@ -118,6 +118,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_juice
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti-juice \
+    android.hardware.power-service-qti-juice.rc \
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power_qti/power.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/30/etc/vintf/manifest/power.xml \
+    $(LOCAL_PATH)/power_qti/powerhint.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/30/etc/powerhint.xml
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
