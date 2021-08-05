@@ -58,8 +58,11 @@ PRODUCT_PACKAGES += \
     libaudio-resampler
 
 # Bluetooth
- PRODUCT_PACKAGES += \
-    BluetoothQti
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-service-qti \
+    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Google Camera
 PRODUCT_PACKAGES += \
@@ -75,6 +78,53 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libvulkan
 
+# OMX
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
+
+# QMI
+PRODUCT_PACKAGES += \
+    libjson \
+    libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti \
+    libvndfwk_detect_jni.qti.vendor
+
+
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
+
+# iR Blaster
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl \
+    android.hardware.ir@1.0-service
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3-service.clearkey \
+    android.hardware.drm@1.3-service.widevine
+
+# Thermal
+PRODUCT_PACKAGES += \
+   android.hardware.thermal@1.0 \
+   android.hardware.thermal@2.0 \
+
+# Media
+PRODUCT_PACKAGES += \
+    libavservices_minijail \
+    libavservices_minijail.vendor \
+    libavservices_minijail_vendor
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
@@ -84,23 +134,46 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+# Atrace
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0-service
+
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service
+
+# Cas
+PRODUCT_PACKAGES += \
+    android.hardware.cas@1.2-service
+
+# Gnss
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.1-service-qti
+
 # Sensors
 PRODUCT_PACKAGES += \
-    libsensorndkbridge \
-    android.hardware.sensors@2.0-service.multihal
+    libsensorndkbridge
 
-# Telephony
+# Power
 PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
+    android.hardware.power-service-qti
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+# HIDL
+PRODUCT_PACKAGES += \
+    libbase \
+    libbase.vendor \
+    libhardware \
+    libhardware.vendor \
+    libhidlbase \
+    libhidlbase.vendor \
+    libhidltransport \
+    libhidltransport.vendor\
+    liblog \
+    liblog.vendor \
+    libhwbinder \
+    libhwbinder.vendor \
+    libutils \
+    libutils.vendor
 
 # Fstab
 PRODUCT_COPY_FILES += \
@@ -114,41 +187,81 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/uinput-focal.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-focal.kl \
     $(LOCAL_PATH)/keylayout/uinput-cdfinger.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-cdfinger.kl
 
-# Lights
+# Remove unwanted packages
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_juice
-
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti-juice \
-    android.hardware.power-service-qti-juice.rc \
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power_qti/power.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/30/etc/vintf/manifest/power.xml \
-    $(LOCAL_PATH)/power_qti/powerhint.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/30/etc/powerhint.xml
+    RemovePackages
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
+#PRODUCT_PACKAGES += \
+#    AospFrameworkResOverlay \
+#    AospWifiResOverlay \
+#    GmsTelecommOverlay \
+#    GmsTelephonyOverlay \
+#    CarrierConfigResCommon \
+#    CellBroadcastReceiverResCommon \
+#    FrameworksResCommon \
+#    FrameworksResTarget \
+#    SystemUIResCommon \
+#    TelecommResCommon \
+#    TelephonyResCommon \
+#    WifiResCommon
 
-# Vendor Overlay
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/vendor-overlay/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION))
+# WiFi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi.hostapd \
+    android.hardware.wifi@1.0-service \
+    vendor.qti.hardware.wifi.hostapd@1.2.vendor \
+    vendor.qti.hardware.wifi.supplicant@2.2.vendor
 
 PRODUCT_PACKAGES += \
-    AospFrameworkResOverlay \
-    AospWifiResOverlay \
-    GmsTelecommOverlay \
-    GmsTelephonyOverlay \
-    CarrierConfigResCommon \
-    CellBroadcastReceiverResCommon \
-    FrameworksResCommon \
-    FrameworksResTarget \
-    SystemUIResCommon \
-    TelecommResCommon \
-    TelephonyResCommon \
-    WifiResCommon
+    libwpa_client \
+    libwifi-hal-ctrl \
+    libwifi-hal-qcom
+
+PRODUCT_PACKAGES += \
+    WifiOverlay \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+# WiFi Display
+PRODUCT_PACKAGES += \
+    libnl \
+    libwfdaac_vendor
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
+
+# RIL
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
+    lqibrmnetctl \
+    libxml2
+
+# Net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
+
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+
+# Telephony
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3-service-qti
+
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
