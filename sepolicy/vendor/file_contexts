@@ -44,6 +44,9 @@
 /dev/lirc[0-9]                                                          u:object_r:lirc_device:s0
 /dev/spidev[0-9]\.1                                                     u:object_r:lirc_device:s0
 
+# Dumpstate
+/vendor/bin/hw/android\.hardware\.dumpstate@1.1-service\.xiaomi_bengal    u:object_r:hal_dumpstate_default_exec:s0
+
 # Lights
 /vendor/bin/hw/android\.hardware\.lights-service\.xiaomi_bengal           u:object_r:hal_light_default_exec:s0
 

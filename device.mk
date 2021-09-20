@@ -223,7 +223,8 @@ PRODUCT_COPY_FILES += \
 
 # Dumpstate
 PRODUCT_PACKAGES += \
-    android.hardware.dumpstate@1.1-service.xiaomi_bengal \
+    android.hardware.dumpstate@1.1-service.xioami_bengal
+
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service.xiaomi_bengal \
