@@ -221,6 +221,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.vibrator.service.xiaomi_bengal \
+    vendor.qti.hardware.vibrator-impl
+
+PRODUCT_PACKAGES += \
+   vibrator.default
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
