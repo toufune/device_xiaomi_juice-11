@@ -229,6 +229,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    vibrator.default
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.xiaomi_bengal
+
+PRODUCT_PACKAGES += \
+    lights.bengal
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
