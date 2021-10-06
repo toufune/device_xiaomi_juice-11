@@ -422,3 +422,7 @@ service checknv /system/bin/checknv
     group root system
     oneshot
     seclabel u:r:checknv:s0
+
+# Touchpanel
+    chown system system /sys/touchpanel/double_tap
+    chmod 0660 /sys/touchpanel/double_tap
